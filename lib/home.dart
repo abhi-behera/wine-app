@@ -9,8 +9,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-  final List<Widget> _pages = [ScannerPage(), CollectionPage(), SettingsPage()];
+  int _selectedIndex = 1;
+  final List<Widget> _pages = [
+    ScannerPage(),
+    CollectionPage(),
+    SettingsPage(),
+    SettingsPage(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -104,15 +109,26 @@ class _HomePageState extends State<HomePage> {
           onTap: _onItemTapped,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.qr_code_scanner),
+              backgroundColor: Color.fromRGBO(11, 21, 25, 1),
+
+              icon: ImageIcon(AssetImage('assets/Scan.png')),
               label: 'Scanner',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.collections),
+              backgroundColor: Color.fromRGBO(11, 21, 25, 1),
+
+              icon: ImageIcon(AssetImage('assets/SquaresFour.png')),
               label: 'Collection',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              backgroundColor: Color.fromRGBO(11, 21, 25, 1),
+
+              icon: ImageIcon(AssetImage('assets/bottle.png')),
+              label: 'Shop',
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Color.fromRGBO(11, 21, 25, 1),
+              icon: ImageIcon(AssetImage('assets/GearSix.png')),
               label: 'Settings',
             ),
           ],
