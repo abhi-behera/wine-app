@@ -17,7 +17,6 @@ class BottleBloc extends Bloc<BottleEvent, BottleState> {
         final List<Bottle> bottles = List<Bottle>.from(
           jsonList['catagory'].map((x) => Bottle.fromJson(x)),
         );
-        // jsonList.map((e) => Bottle.fromJson(e)).toList();
         emit(BottleLoaded(bottles));
       } catch (e) {
         emit(BottleError('Failed to load data'));
