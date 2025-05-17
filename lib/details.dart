@@ -10,7 +10,7 @@ class DetailPage extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color.fromARGB(255, 6, 18, 22),
         body: Stack(
           children: [
             Positioned.fill(
@@ -23,7 +23,6 @@ class DetailPage extends StatelessWidget {
             SafeArea(
               child: Column(
                 children: [
-                  // Header section
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16.0,
@@ -32,16 +31,32 @@ class DetailPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Genesis Collection',
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        Container(
+                          color: Color(0xFF0B1D23),
+                          child: Text(
+                            'Genesis Collection',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
                         ),
 
-                        IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(Icons.close, color: Colors.white),
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF0B1D23),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: Icon(Icons.close, color: Colors.white),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -56,13 +71,17 @@ class DetailPage extends StatelessWidget {
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.6),
+                        color: Color.fromARGB(255, 6, 18, 22),
                         borderRadius: BorderRadius.circular(0),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Icon(Icons.settings, size: 16, color: Colors.yellow),
+                          SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: Image.asset('assets/genuine-icon.png'),
+                          ),
                           SizedBox(width: 8),
                           Text(
                             'Genuine Bottle (Unopened)',
@@ -423,10 +442,9 @@ Widget _buildTimelineCard({
             decoration: BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.amber, width: 2),
             ),
           ),
-          Container(width: 2, height: 200, color: Colors.amber),
+          Container(width: 2, height: 260, color: Colors.amber),
         ],
       ),
       SizedBox(width: 16),
@@ -460,7 +478,7 @@ Widget _buildTimelineCard({
               ),
               SizedBox(height: 12),
               Container(
-                color: Colors.black38,
+                color: const Color.fromARGB(0, 0, 0, 0),
                 padding: EdgeInsets.all(10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
