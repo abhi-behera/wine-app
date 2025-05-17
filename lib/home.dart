@@ -36,7 +36,8 @@ class _HomePageState extends State<HomePage> {
               Text(
                 "My Collection",
                 style: TextStyle(
-                  fontFamily: "",
+                  fontFamily: 'serif',
+
                   fontSize: 29,
                   color: Colors.white,
                 ),

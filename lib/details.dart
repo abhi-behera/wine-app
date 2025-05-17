@@ -108,6 +108,7 @@ class DetailPage extends StatelessWidget {
                             TextSpan(
                               text: 'Talisker ',
                               style: TextStyle(
+                                fontFamily: 'serif',
                                 fontSize: 20,
                                 color: Colors.white,
                               ),
@@ -123,6 +124,7 @@ class DetailPage extends StatelessWidget {
                           Text(
                             '#2504',
                             style: TextStyle(
+                              fontFamily: 'serif',
                               color: Colors.white70,
                               fontSize: 19,
                             ),
@@ -138,13 +140,7 @@ class DetailPage extends StatelessWidget {
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              color: Color.fromRGBO(
-                                14,
-                                28,
-                                33,
-                                1,
-                              ), // dark background
-                              // borderRadius: BorderRadius.circular(8),
+                              color: Color.fromRGBO(14, 28, 33, 1),
                             ),
                             child: TabBar(
                               indicatorSize: TabBarIndicatorSize.tab,
@@ -240,7 +236,7 @@ class DetailPage extends StatelessWidget {
                         icon: Icon(Icons.add),
                         label: Text(
                           'Add to my collection',
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(fontFamily: 'serif', fontSize: 18),
                         ),
                       ),
                     ),
@@ -289,6 +285,7 @@ Widget _buildTastingNotesTab() {
         Text(
           'Tasting notes',
           style: TextStyle(
+            fontFamily: 'serif',
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -365,6 +362,7 @@ Widget _buildNoteSection(String title, List<String> descriptions) {
         Text(
           title,
           style: TextStyle(
+            fontFamily: 'serif',
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 16,
@@ -450,6 +448,7 @@ Widget _buildTimelineCard({
               Text(
                 subtitle,
                 style: TextStyle(
+                  fontFamily: 'serif',
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,

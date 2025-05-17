@@ -50,7 +50,11 @@ class CollectionPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 18.0),
                 child: Text(
                   title,
-                  style: TextStyle(color: Colors.white, fontSize: 22),
+                  style: TextStyle(
+                    fontFamily: 'serif',
+                    color: Colors.white,
+                    fontSize: 22,
+                  ),
                 ),
               ),
             ),
@@ -64,7 +68,11 @@ class CollectionPage extends StatelessWidget {
                 ),
                 child: Text(
                   age,
-                  style: TextStyle(color: Colors.white, fontSize: 22),
+                  style: TextStyle(
+                    fontFamily: 'serif',
+                    color: Colors.white,
+                    fontSize: 22,
+                  ),
                 ),
               ),
             ),
@@ -74,7 +82,11 @@ class CollectionPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20.0, bottom: 8.0),
                 child: Text(
                   "($quantity/$totalQuantity)",
-                  style: TextStyle(color: Colors.white, fontSize: 14),
+                  style: TextStyle(
+                    fontFamily: 'serif',
+                    color: Colors.white,
+                    fontSize: 14,
+                  ),
                 ),
               ),
             ),
