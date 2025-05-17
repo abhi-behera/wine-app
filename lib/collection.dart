@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:wineapp/catagory/catagory_bloc.dart';
+import 'package:wineapp/catagory/catagory_state.dart';
 import 'package:wineapp/details.dart';
 
 // import 'package:wineapp/details.dart';
@@ -42,194 +45,195 @@ class CollectionPage extends StatelessWidget {
   final quantity = [111, 121, 160, 268, 210, 203, 110, 19];
   final totalQuantity = [230, 220, 190, 300, 450, 299, 120, 210];
 
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(child: category1StaggeredGrid(context));
-    // GridView.builder(
-    //   padding: EdgeInsets.all(8),
-    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //     crossAxisCount: 2,
-    //     crossAxisSpacing: 12,
-    //     mainAxisSpacing: 12,
-    //   ),
-    //   itemCount: 8,
-    //   itemBuilder: (context, index) {
-    //     return GestureDetector(
-    //       onTap: () {
-    //         Navigator.push(
-    //           context,
-    //           MaterialPageRoute(builder: (_) => DetailPage(imageUrl: imageUrl)),
-    //         );
-    //       },
-    //       child:
-    //       // category1StaggeredGrid(),
-    //       Container(
-    //         color: const Color.fromARGB(17, 255, 255, 255),
-    //         child: Column(
-    //           mainAxisAlignment: MainAxisAlignment.spaceAround,
-    //           children: [
-    //             Expanded(
-    //               flex: 5,
-    //               child: Image.asset(imageUrl, fit: BoxFit.cover),
-    //             ),
-    //             Expanded(
-    //               flex: 1,
-    //               child: Text(
-    //                 "Springbank ",
-    //                 style: TextStyle(color: Colors.white, fontSize: 20),
-    //               ),
-    //             ),
-    //             Expanded(
-    //               flex: 1,
-    //               child: Text(
-    //                 "1992 #1234",
-    //                 style: TextStyle(color: Colors.white, fontSize: 20),
-    //               ),
-    //             ),
-    //             Expanded(
-    //               flex: 1,
-    //               child: Text(
-    //                 "(112/158)",
-    //                 style: TextStyle(color: Colors.white, fontSize: 14),
-    //               ),
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     );
-    //   },
-    // );
-  }
-
-  StaggeredGrid category1StaggeredGrid(BuildContext context) {
-    return StaggeredGrid.count(
-      crossAxisCount: 4,
-      mainAxisSpacing: 12,
-      crossAxisSpacing: 12,
-      children: [
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-        StaggeredGridTile.count(
-          crossAxisCellCount: 2,
-          mainAxisCellCount: 4,
-          child: buildGridTile(
-            context,
-            imageList[0],
-            title[0],
-            age[0],
-            quantity[0],
-            totalQuantity[0],
-          ),
-        ),
-      ],
-    );
-  }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return SingleChildScrollView(child:
+  // category1StaggeredGrid(context));
+  // GridView.builder(
+  //   padding: EdgeInsets.all(8),
+  //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+  //     crossAxisCount: 2,
+  //     crossAxisSpacing: 12,
+  //     mainAxisSpacing: 12,
+  //   ),
+  //   itemCount: 8,
+  //   itemBuilder: (context, index) {
+  //     return GestureDetector(
+  //       onTap: () {
+  //         Navigator.push(
+  //           context,
+  //           MaterialPageRoute(builder: (_) => DetailPage(imageUrl: imageUrl)),
+  //         );
+  //       },
+  //       child:
+  //       // category1StaggeredGrid(),
+  //       Container(
+  //         color: const Color.fromARGB(17, 255, 255, 255),
+  //         child: Column(
+  //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //           children: [
+  //             Expanded(
+  //               flex: 5,
+  //               child: Image.asset(imageUrl, fit: BoxFit.cover),
+  //             ),
+  //             Expanded(
+  //               flex: 1,
+  //               child: Text(
+  //                 "Springbank ",
+  //                 style: TextStyle(color: Colors.white, fontSize: 20),
+  //               ),
+  //             ),
+  //             Expanded(
+  //               flex: 1,
+  //               child: Text(
+  //                 "1992 #1234",
+  //                 style: TextStyle(color: Colors.white, fontSize: 20),
+  //               ),
+  //             ),
+  //             Expanded(
+  //               flex: 1,
+  //               child: Text(
+  //                 "(112/158)",
+  //                 style: TextStyle(color: Colors.white, fontSize: 14),
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     );
+  //   },
+  // );
+  // }
+  // StaggeredGrid view code
+  // StaggeredGrid category1StaggeredGrid(BuildContext context) {
+  //   return StaggeredGrid.count(
+  //     crossAxisCount: 4,
+  //     mainAxisSpacing: 12,
+  //     crossAxisSpacing: 12,
+  //     children: [
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //       StaggeredGridTile.count(
+  //         crossAxisCellCount: 2,
+  //         mainAxisCellCount: 4,
+  //         child: buildGridTile(
+  //           context,
+  //           imageList[0],
+  //           title[0],
+  //           age[0],
+  //           quantity[0],
+  //           totalQuantity[0],
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
   Widget buildGridTile(
     BuildContext context,
@@ -303,55 +307,42 @@ class CollectionPage extends StatelessWidget {
     );
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return BlocBuilder<BottleBloc, BottleState>(
-  //     builder: (context, state) {
-  //       if (state is BottleLoading) {
-  //         return Center(child: CircularProgressIndicator());
-  //       } else if (state is BottleLoaded) {
-  //         return Padding(
-  //           padding: const EdgeInsets.all(8.0),
-  //           child: MasonryGridView.count(
-  //             crossAxisCount: 2,
-  //             itemCount: state.bottles.length,
-  //             itemBuilder: (context, index) {
-  //               final bottle = state.bottles[index];
-  //               return Card(
-  //                 child: Column(
-  //                   crossAxisAlignment: CrossAxisAlignment.start,
-  //                   children: [
-  //                     Image.asset(bottle.image),
-  //                     Padding(
-  //                       padding: const EdgeInsets.all(8.0),
-  //                       child: Text(
-  //                         bottle.title,
-  //                         style: TextStyle(fontWeight: FontWeight.bold),
-  //                       ),
-  //                     ),
-  //                     Padding(
-  //                       padding: const EdgeInsets.symmetric(horizontal: 8),
-  //                       child: Text(bottle.age),
-  //                     ),
-  //                     Padding(
-  //                       padding: const EdgeInsets.all(8.0),
-  //                       child: LinearProgressIndicator(
-  //                         value: bottle.quantity / bottle.totalQuantity,
-  //                         backgroundColor: Colors.grey[300],
-  //                         valueColor: AlwaysStoppedAnimation(Colors.green),
-  //                       ),
-  //                     ),
-  //                   ],
-  //                 ),
-  //               );
-  //             },
-  //           ),
-  //         );
-  //       } else if (state is BottleError) {
-  //         return Center(child: Text(state.message));
-  //       }
-  //       return Container();
-  //     },
-  //   );
-  // }
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<BottleBloc, BottleState>(
+      builder: (context, state) {
+        if (state is BottleLoading) {
+          return Center(child: CircularProgressIndicator());
+        } else if (state is BottleLoaded) {
+          return SingleChildScrollView(
+            child: StaggeredGrid.count(
+              crossAxisCount: 4,
+              mainAxisSpacing: 12,
+              crossAxisSpacing: 12,
+              children: List.generate(state.bottles.length, (index) {
+                final bottle = state.bottles[index];
+                return StaggeredGridTile.count(
+                  crossAxisCellCount: 2,
+                  mainAxisCellCount: 4,
+                  child: buildGridTile(
+                    context,
+                    bottle.image,
+                    bottle.title,
+                    bottle.age,
+                    bottle.quantity,
+                    bottle.totalQuantity,
+                  ),
+                );
+              }),
+            ),
+          );
+        } else if (state is BottleError) {
+          return Center(
+            child: Text(state.message, style: TextStyle(color: Colors.white)),
+          );
+        }
+        return Container();
+      },
+    );
+  }
 }

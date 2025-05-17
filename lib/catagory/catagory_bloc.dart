@@ -5,15 +5,19 @@ import 'package:wineapp/catagory/catagory_state.dart';
 import 'package:wineapp/model/Bottle.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-
 class BottleBloc extends Bloc<BottleEvent, BottleState> {
   BottleBloc() : super(BottleInitial()) {
     on<FetchBottles>((event, emit) async {
       emit(BottleLoading());
       try {
-        final data = await rootBundle.loadString('json_data/catagory_data.json');
-        final List<dynamic> jsonList = jsonDecode(data);
-        final bottles = jsonList.map((e) => Bottle.fromJson(e)).toList();
+        final data = await rootBundle.loadString(
+          'json_data/catagory_data.json',
+        );
+        final Map<String, dynamic> jsonList = jsonDecode(data);
+        final List<Bottle> bottles = List<Bottle>.from(
+          jsonList['catagory'].map((x) => Bottle.fromJson(x)),
+        );
+        // jsonList.map((e) => Bottle.fromJson(e)).toList();
         emit(BottleLoaded(bottles));
       } catch (e) {
         emit(BottleError('Failed to load data'));
