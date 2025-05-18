@@ -1,15 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:wineapp/catagory/catagory_bloc.dart';
-import 'package:wineapp/catagory/catagory_event.dart';
-import 'package:wineapp/collection.dart';
-import 'package:wineapp/details.dart';
-import 'package:wineapp/home.dart';
+import 'package:wineapp/catagory/collection_bloc.dart';
+import 'package:wineapp/catagory/collection_event.dart';
+import 'package:wineapp/screens/collection.dart';
+import 'package:wineapp/connectivity/connectivity_bloc.dart';
+import 'package:wineapp/screens/details.dart';
+import 'package:wineapp/screens/home.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wineapp/scanner.dart';
-import 'package:wineapp/signIn.dart';
-import 'package:wineapp/splash_screen.dart';
-import 'package:wineapp/welcome.dart';
+import 'package:wineapp/screens/scanner.dart';
+import 'package:wineapp/screens/signIn.dart';
+import 'package:wineapp/screens/splash_screen.dart';
+import 'package:wineapp/screens/welcome.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,8 +21,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BottleBloc()..add(FetchBottles()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CollectionBloc>(
+          create: (context) => CollectionBloc()..add(FetchBottles()),
+        ),
+        BlocProvider<ConnectivityBloc>(create: (context) => ConnectivityBloc()),
+        // Add more BLoCs here as needed
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Bottle Collection',
