@@ -10,6 +10,46 @@ import 'package:wineapp/screens/details.dart';
 class CollectionPage extends StatelessWidget {
   const CollectionPage({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CollectionBloc, CollectionState>(
+      builder: (context, state) {
+        if (state is BottleLoading) {
+          return Center(child: CircularProgressIndicator());
+        } else if (state is BottleLoaded) {
+          return SingleChildScrollView(
+            child: StaggeredGrid.count(
+              crossAxisCount: 4,
+              mainAxisSpacing: 12,
+              crossAxisSpacing: 12,
+              children: List.generate(state.bottles.length, (index) {
+                final bottle = state.bottles[index];
+                return StaggeredGridTile.count(
+                  crossAxisCellCount: 2,
+                  mainAxisCellCount: 4,
+                  child: buildGridTile(
+                    context,
+                    bottle.image,
+                    bottle.title,
+                    bottle.age,
+                    bottle.quantity,
+                    bottle.totalQuantity,
+                  ),
+                );
+              }),
+            ),
+          );
+        } else if (state is BottleError) {
+          return Center(
+            child: Text(state.message, style: TextStyle(color: Colors.white)),
+          );
+        }
+        return Container();
+      },
+    );
+  }
+
+  // tile widget extracted...
   Widget buildGridTile(
     BuildContext context,
     String imageName,
@@ -48,12 +88,15 @@ class CollectionPage extends StatelessWidget {
               flex: 1,
               child: Padding(
                 padding: const EdgeInsets.only(left: 18.0),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    fontFamily: 'serif',
-                    color: Colors.white,
-                    fontSize: 22,
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      fontFamily: 'serif',
+                      color: Colors.white,
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),
@@ -66,12 +109,15 @@ class CollectionPage extends StatelessWidget {
                   top: 2.0,
                   bottom: 2.0,
                 ),
-                child: Text(
-                  age,
-                  style: TextStyle(
-                    fontFamily: 'serif',
-                    color: Colors.white,
-                    fontSize: 22,
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    age,
+                    style: TextStyle(
+                      fontFamily: 'serif',
+                      color: Colors.white,
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),
@@ -80,12 +126,15 @@ class CollectionPage extends StatelessWidget {
               flex: 1,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20.0, bottom: 8.0),
-                child: Text(
-                  "($quantity/$totalQuantity)",
-                  style: TextStyle(
-                    fontFamily: 'serif',
-                    color: Colors.white,
-                    fontSize: 14,
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    "($quantity/$totalQuantity)",
+                    style: TextStyle(
+                      fontFamily: 'serif',
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
                   ),
                 ),
               ),
@@ -93,45 +142,6 @@ class CollectionPage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<CollectionBloc, CollectionState>(
-      builder: (context, state) {
-        if (state is BottleLoading) {
-          return Center(child: CircularProgressIndicator());
-        } else if (state is BottleLoaded) {
-          return SingleChildScrollView(
-            child: StaggeredGrid.count(
-              crossAxisCount: 4,
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 12,
-              children: List.generate(state.bottles.length, (index) {
-                final bottle = state.bottles[index];
-                return StaggeredGridTile.count(
-                  crossAxisCellCount: 2,
-                  mainAxisCellCount: 4,
-                  child: buildGridTile(
-                    context,
-                    bottle.image,
-                    bottle.title,
-                    bottle.age,
-                    bottle.quantity,
-                    bottle.totalQuantity,
-                  ),
-                );
-              }),
-            ),
-          );
-        } else if (state is BottleError) {
-          return Center(
-            child: Text(state.message, style: TextStyle(color: Colors.white)),
-          );
-        }
-        return Container();
-      },
     );
   }
 }

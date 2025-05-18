@@ -176,7 +176,7 @@ class DetailPage extends StatelessWidget {
                                     child: Text(
                                       'Details',
                                       style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                       ), // optional styling
                                     ),
                                   ),
@@ -187,7 +187,7 @@ class DetailPage extends StatelessWidget {
                                     child: Text(
                                       'Tasting notes',
                                       style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                       ), // optional styling
                                     ),
                                   ),
@@ -198,7 +198,7 @@ class DetailPage extends StatelessWidget {
                                     child: Text(
                                       'History',
                                       style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 12,
                                       ), // optional styling
                                     ),
                                   ),
@@ -242,6 +242,7 @@ class DetailPage extends StatelessWidget {
                     ),
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.6,
+                      height: 50,
                       child: ElevatedButton.icon(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
@@ -253,9 +254,12 @@ class DetailPage extends StatelessWidget {
                           ),
                         ),
                         icon: Icon(Icons.add),
-                        label: Text(
-                          'Add to my collection',
-                          style: TextStyle(fontFamily: 'serif', fontSize: 18),
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                            'Add to my collection',
+                            style: TextStyle(fontFamily: 'serif', fontSize: 18),
+                          ),
                         ),
                       ),
                     ),

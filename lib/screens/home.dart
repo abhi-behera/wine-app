@@ -81,15 +81,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              // Padding(
-              //   padding: EdgeInsets.all(8),
-              //   child: Align(
-              //     child: IconButton(
-              //       onPressed: () {},
-              //       icon: Image.asset('assets/bell.png', color: Colors.white),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
