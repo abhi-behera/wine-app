@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wineapp/collection.dart';
-import 'package:wineapp/scanner.dart';
-import 'package:wineapp/settings.dart';
+import 'package:wineapp/screens/collection.dart';
+import 'package:wineapp/screens/scanner.dart';
+import 'package:wineapp/screens/settings.dart';
 
 class HomePage extends StatefulWidget {
   @override

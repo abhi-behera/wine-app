@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:wineapp/catagory/catagory_bloc.dart';
-import 'package:wineapp/catagory/catagory_state.dart';
-import 'package:wineapp/details.dart';
+import 'package:wineapp/catagory/collection_bloc.dart';
+import 'package:wineapp/catagory/collection_state.dart';
+import 'package:wineapp/screens/details.dart';
 
 // import 'package:wineapp/details.dart';
 
@@ -98,7 +98,7 @@ class CollectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BottleBloc, BottleState>(
+    return BlocBuilder<CollectionBloc, CollectionState>(
       builder: (context, state) {
         if (state is BottleLoading) {
           return Center(child: CircularProgressIndicator());
