@@ -220,66 +220,39 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   // add to col btn...
-                  //   Padding(
-                  //     padding: const EdgeInsets.symmetric(
-                  //       horizontal: 16.0,
-                  //       vertical: 12,
-                  //     ),
-                  //     child: SizedBox(
-                  //       width: MediaQuery.of(context).size.width * 0.6,
-                  //       height: 50,
-                  //       child: ElevatedButton.icon(
-                  //         onPressed: () {},
-                  //         style: ElevatedButton.styleFrom(
-                  //           backgroundColor: Colors.amber,
-                  //           foregroundColor: Colors.black,
-                  //           padding: EdgeInsets.symmetric(vertical: 16),
-                  //           shape: RoundedRectangleBorder(
-                  //             borderRadius: BorderRadius.circular(12),
-                  //           ),
-                  //         ),
-                  //         icon: Icon(Icons.add),
-                  //         label: FittedBox(
-                  //           fit: BoxFit.fitWidth,
-                  //           child: Text(
-                  //             'Add to my collection',
-                  //             style: TextStyle(fontFamily: 'serif', fontSize: 18),
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 12,
+                    ),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      height: 50,
+                      child: ElevatedButton.icon(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.amber,
+                          foregroundColor: Colors.black,
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        icon: Icon(Icons.add),
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text(
+                            'Add to my collection',
+                            style: TextStyle(fontFamily: 'serif', fontSize: 18),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
           ],
-        ),
-        // add to col btn...
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.6,
-            height: 50,
-            child: ElevatedButton.icon(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.amber,
-                foregroundColor: Colors.black,
-                padding: EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-              icon: Icon(Icons.add),
-              label: FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text(
-                  'Add to my collection',
-                  style: TextStyle(fontFamily: 'serif', fontSize: 18),
-                ),
-              ),
-            ),
-          ),
         ),
       ),
     );
