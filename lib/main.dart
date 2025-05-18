@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:wineapp/catagory/catagory_bloc.dart';
 import 'package:wineapp/catagory/catagory_event.dart';
 import 'package:wineapp/collection.dart';
+import 'package:wineapp/connectivity/connectivity_bloc.dart';
 import 'package:wineapp/details.dart';
 import 'package:wineapp/home.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,8 +21,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BottleBloc()..add(FetchBottles()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<BottleBloc>(
+          create: (context) => BottleBloc()..add(FetchBottles()),
+        ),
+        BlocProvider<ConnectivityBloc>(create: (context) => ConnectivityBloc()),
+        // Add more BLoCs here as needed
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Bottle Collection',
